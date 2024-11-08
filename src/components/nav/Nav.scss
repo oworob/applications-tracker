@@ -1,0 +1,37 @@
+#Nav {
+  background: var(--nav);
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: var(--shadow);
+  .route {
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: var(--transition);
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    font-size: 90%;
+    gap: 4px;
+    svg {
+      font-size: 120%;
+    }
+    &:hover:not(.active) {
+      background: var(--footer);
+      box-shadow: var(--shadow) inset;
+      border-bottom: 1px solid var(--panel);
+    }
+    &.active {
+      background: var(--theme);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      border-top-color: var(--theme-light);
+    }
+  }
+}

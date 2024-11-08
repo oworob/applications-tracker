@@ -1,0 +1,120 @@
+#ApplicationAddEdit {
+  margin: 20px;
+  a {
+    width: min-content;
+  }
+  .section-header {
+    padding: 20px;
+    border-radius: 8px;
+    background: var(--panel);
+    box-shadow: var(--shadow);
+    margin-bottom: 8px;
+  }
+  .content {
+    padding: 20px;
+    border-radius: 8px;
+    background: var(--panel);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .application-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    .form-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 50%;
+      label {
+        margin-left: 8px;
+        font-weight: bold;
+      }
+      .label-with-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4px;
+      }
+    }
+    .salaries {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      .salary-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        #Select {
+          flex: 1;
+        }
+        .range {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          input {
+            max-width: 100px;
+          }
+        }
+      }
+      .no-salaries-label {
+        margin-left: 8px;
+        color: var(--text-disabled);
+      }
+    }
+    .employment-forms {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-left: 8px;
+      .option {
+        display: flex;
+        gap: 8px;
+        cursor: pointer;
+      }
+    }
+    .date-picker {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      #Select {
+        flex: 1;
+      }
+    }
+    .mode {
+      display: flex;
+      gap: 8px;
+      width: 50%;
+      .form-item {
+        flex: 1;
+      }
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+      transition: height 1s, all var(--transition);
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    &:has(:only-child) {
+      justify-content: center;
+    }
+    width: 45%;
+    .submit,
+    .delete {
+      padding: 8px 40px;
+    }
+  }
+
+  #Select #select-options #option {
+    width: 100%;
+  }
+}

@@ -1,0 +1,27 @@
+#Home {
+  margin: 20px;
+  .section-header {
+    padding: 20px;
+    border-radius: 8px;
+    background: var(--panel);
+    box-shadow: var(--shadow);
+    margin-bottom: 8px;
+  }
+  .content {
+    gap: 8px;
+    .questions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      .question {
+        padding: 40px;
+        border-radius: 8px;
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        p {
+          text-justify: inter-word;
+        }
+      }
+    }
+  }
+}

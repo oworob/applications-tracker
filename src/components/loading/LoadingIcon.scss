@@ -1,0 +1,8 @@
+#LoadingIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+  color: var(--theme);
+  filter: drop-shadow(var(--shadow));
+}

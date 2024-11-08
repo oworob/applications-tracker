@@ -1,0 +1,29 @@
+#TagInput {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  border-bottom: 1px solid var(--panel-light) !important;
+  box-shadow: var(--shadow) inset;
+  background: var(--background);
+  transition: var(--transition);
+  &:has(input:focus),
+  &:has(input:hover) {
+    background: var(--nav);
+  }
+
+  .tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    font-size: 90%;
+    padding: 4px 8px;
+  }
+
+  input {
+    background: none;
+    flex: 1;
+  }
+}

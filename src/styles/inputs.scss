@@ -1,0 +1,68 @@
+input[type="text"],
+input[type="numeric"],
+input[type="date"],
+textarea {
+  appearance: none;
+  outline: none;
+  border: none;
+  font-family: inherit;
+  font-size: 100%;
+  color: var(--text);
+}
+
+.input {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border-bottom: 1px solid var(--panel-light) !important;
+  box-shadow: var(--shadow) inset;
+  background: var(--background);
+  transition: var(--transition);
+  &:hover,
+  &:focus {
+    background: var(--nav);
+    border-top-color: var(--panel-light);
+  }
+}
+
+.input-with-icons {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  border-bottom: 1px solid var(--panel-light);
+  box-shadow: var(--shadow) inset;
+  background: var(--background);
+  transition: var(--transition);
+  svg {
+    transition: var(--transition);
+    color: var(--theme);
+    &:first-child {
+      margin-left: 8px;
+    }
+    &:last-child {
+      margin-right: 16px;
+      cursor: pointer;
+      // margin-left: auto;
+    }
+  }
+  input {
+    background: none;
+    text-shadow: var(--shadow);
+    font-size: 90%;
+    padding: 8px;
+    flex: 1;
+  }
+  // apply padding if doesnt have prefix icon
+  &:not(:has(svg:first-child)) {
+    input {
+      padding-left: 16px;
+    }
+  }
+  &:hover,
+  &:has(input:focus) {
+    background: var(--nav);
+    border-top-color: var(--panel-light);
+    svg {
+      color: var(--theme-light);
+    }
+  }
+}

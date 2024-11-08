@@ -1,0 +1,52 @@
+#SnackBar {
+  position: fixed;
+  top: 8px;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  transition: opacity var(--transition) ease-in-out, visibility var(--transition) ease-in-out, transform var(--transition) ease-in-out;
+  pointer-events: none;
+  .notification-window {
+    background: var(--panel);
+    display: flex;
+    padding: 16px 32px;
+    display: flex;
+    gap: 8px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    max-width: 25%;
+    &.success {
+      background: var(--theme);
+    }
+    &.error {
+      background: var(--error);
+    }
+    svg {
+      font-size: 150%;
+    }
+  }
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+  animation: slide-up var(--transition) ease-in-out;
+}
+
+.hide {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-1em);
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(1em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

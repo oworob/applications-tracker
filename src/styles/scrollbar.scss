@@ -1,0 +1,13 @@
+::-webkit-scrollbar {
+  max-width: 8px;
+  max-height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nav);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--footer);
+  border-radius: 8px;
+}

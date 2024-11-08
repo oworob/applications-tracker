@@ -1,0 +1,20 @@
+#Checkbox {
+  border: 2px solid var(--text-disabled);
+  border-radius: 8px;
+  padding: 2px;
+  display: flex;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  font-size: 90%;
+  svg {
+    transform: scale(0);
+    transition: var(--transition);
+  }
+  &.checked {
+    background: var(--theme);
+    svg {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
