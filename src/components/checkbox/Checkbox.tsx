@@ -5,7 +5,7 @@ export default function Checkbox(props: any) {
   const { checked } = props;
 
   return (
-    <div id="Checkbox" className={checked ? "checked" : ""}>
+    <div id="Checkbox" className={checked ? "checked" : ""} data-testid="Checkbox">
       <Icon icon="mi-check" />
     </div>
   );

@@ -6,7 +6,6 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
     "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.113",
@@ -25,8 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false",
-    "coverage": "npm test -- --coverage",
+    "test": "react-scripts test --watchAll=false --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -49,6 +47,19 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@iconify/react": "^5.0.2"
+    "@iconify/react": "^5.0.2",
+    "@testing-library/react": "^16.0.1"
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "db",
+      "src/index.tsx",
+      "src/App.tsx",
+      "src/assets",
+      "src/models"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@iconify/react)/)"
+    ]
   }
 }
