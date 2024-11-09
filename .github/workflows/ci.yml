@@ -26,3 +26,6 @@ jobs:
 
       - name: Run tests
         run: npm test -- --coverage
+
+      - name: Run ESLint
+        run: npm run lint
