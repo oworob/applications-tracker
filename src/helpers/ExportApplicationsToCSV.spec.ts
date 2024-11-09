@@ -27,6 +27,11 @@ describe("ObjectToCSV", () => {
     const csv = ObjectToCSV(mock_data[0]);
     expect(csv).toBe("1;Software Developer;JavaScript,React;1000 - 2000 (B2B),2000 - 3000 (Permanent)");
   });
+
+  it("should handle null and undefined", () => {
+    const csv = ObjectToCSV({ id: null, position: undefined });
+    expect(csv).toBe(";");
+  });
 });
 
 describe("ArrayToCSV", () => {

@@ -17,15 +17,11 @@
     position: absolute;
     width: 100%;
     box-shadow: var(--shadow);
-
     border-radius: 8px;
     z-index: 1;
     overflow-y: scroll;
     max-height: 200px;
 
-    &.above {
-      bottom: 100%;
-    }
     #option {
       &:first-child {
         padding-top: 8px;
@@ -52,10 +48,6 @@
       &.selected {
         background-color: var(--theme);
       }
-    }
-    &.hidden {
-      opacity: 0;
-      pointer-events: none;
     }
   }
   ::-webkit-scrollbar {

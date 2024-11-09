@@ -1,6 +1,6 @@
-import { HideNotification } from "stores/NotificationReducer";
 import "./SnackBar.scss";
-import { useEffect, useState } from "react";
+import { HideNotification } from "stores/NotificationReducer";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Icon } from "@iconify/react";
 

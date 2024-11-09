@@ -10,7 +10,7 @@ export default function Nav() {
         .filter((route) => route.icon)
         .map((route) => (
           <NavLink to={route.path} key={route.path} className={`route`}>
-            <Icon icon={route.icon || ""} id="icon" />
+            <Icon icon={route.icon!} id="icon" />
             {route.name}
           </NavLink>
         ))}

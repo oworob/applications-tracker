@@ -11,6 +11,7 @@
     "@types/node": "^16.18.113",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
+    "fake-indexeddb": "^6.0.0",
     "idb": "^8.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -60,6 +61,7 @@
     ],
     "transformIgnorePatterns": [
       "node_modules/(?!(@iconify/react)/)"
-    ]
+    ],
+    "coverageReporters": ["json", "lcov", "clover"]
   }
 }
