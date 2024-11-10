@@ -47,7 +47,6 @@ export default function Applications() {
       filtered_data = Applications.filter((application) => {
         const applied_month = MONTHS[application.applied.getMonth()];
         const salaries = application.salaries.map((s) => [s.min, s.max]).flat();
-        console.log(salaries);
         return (
           Object.values(application).some((value) => value.toString().toLowerCase().includes(SearchPhrase.toLowerCase())) ||
           applied_month.toLowerCase().includes(SearchPhrase.toLowerCase()) ||

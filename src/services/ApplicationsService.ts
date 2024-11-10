@@ -1,4 +1,4 @@
-import { dbPromise } from "db/main";
+import { dbPromise } from "db/db";
 import { IApiApplication, IApplication } from "models/application";
 
 export async function ApiGetApplications() {

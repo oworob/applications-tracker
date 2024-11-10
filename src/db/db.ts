@@ -1,5 +1,5 @@
 import { openDB, DBSchema, IDBPDatabase } from "idb";
-import { IApiApplication, IApplication } from "models/application";
+import { IApiApplication } from "models/application";
 
 interface AppDB extends DBSchema {
   applications: {

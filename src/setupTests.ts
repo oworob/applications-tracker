@@ -1,5 +1,6 @@
 import "@testing-library/jest-dom";
+import { configure } from "@testing-library/dom";
+
 require("fake-indexeddb/auto");
 
-import { configure } from "@testing-library/dom";
 configure({ testIdAttribute: "id" });

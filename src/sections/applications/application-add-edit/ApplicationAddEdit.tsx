@@ -72,7 +72,7 @@ export default function ApplicationAddEdit() {
         }
       });
     }
-  }, [EditMode]);
+  }, [EditMode, id, navigate]);
 
   function SubmitApplication(e: FormEvent) {
     e.preventDefault();
