@@ -1,6 +1,6 @@
-@import "scrollbar.scss";
-@import "buttons.scss";
-@import "inputs.scss";
+@use "scrollbar.scss";
+@use "buttons.scss";
+@use "inputs.scss";
 
 :root {
   --background: #333;

@@ -12,6 +12,7 @@ export default function SnackBar() {
     if (notification.visible) {
       const timer = setTimeout(() => {
         dispatch(HideNotification());
+        console.log("hiding!");
       }, 3000 + notification.message.length * 50);
       return () => clearTimeout(timer);
     }
@@ -20,9 +21,9 @@ export default function SnackBar() {
   return (
     <div id="SnackBar" className={notification.visible ? "show" : "hide"}>
       <div className={`notification-window ${notification.notification_type}`}>
-        {notification.notification_type === "success" && <Icon icon="mi-circle-check" />}
-        {notification.notification_type === "error" && <Icon icon="mi-circle-error" />}
-        <p className={`notification ${notification.notificationType}`}>{notification.message}</p>
+        {notification.notification_type === "success" && <Icon icon="mi-circle-check" id="success-icon" />}
+        {notification.notification_type === "error" && <Icon icon="mi-circle-error" id="error-icon" />}
+        <p className="notification">{notification.message}</p>
       </div>
     </div>
   );

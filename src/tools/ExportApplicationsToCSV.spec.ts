@@ -1,3 +1,4 @@
+import { vi } from "vitest";
 import ExportApplicationsToCSV, { ExportApplicationsToCSV_TESTING } from "./ExportApplicationsToCSV";
 const { ObjectToCSV, ArrayToCSV } = ExportApplicationsToCSV_TESTING;
 
@@ -49,11 +50,11 @@ describe("ArrayToCSV", () => {
 
 describe("ExportApplicationsToCSV", () => {
   it("should download the CSV file", () => {
-    const link = { href: "", click: jest.fn(), download: "", style: { display: "" }, setAttribute: jest.fn() } as any;
-    const createElementSpy = jest.spyOn(document, "createElement").mockReturnValueOnce(link);
-    global.URL.createObjectURL = jest.fn();
-    document.body.appendChild = jest.fn();
-    document.body.removeChild = jest.fn();
+    const link = { href: "", click: vi.fn(), download: "", style: { display: "" }, setAttribute: vi.fn() } as any;
+    const createElementSpy = vi.spyOn(document, "createElement").mockReturnValueOnce(link);
+    global.URL.createObjectURL = vi.fn();
+    document.body.appendChild = vi.fn();
+    document.body.removeChild = vi.fn();
     ExportApplicationsToCSV(mock_data, "test_name.csv");
     expect(createElementSpy).toBeCalledWith("a");
     expect(document.body.appendChild).toBeCalledWith(link);
@@ -62,7 +63,7 @@ describe("ExportApplicationsToCSV", () => {
   });
 
   it("should log an error if an error occurs", () => {
-    const consoleSpy = jest.spyOn(console, "error").mockImplementationOnce(() => {});
+    const consoleSpy = vi.spyOn(console, "error").mockImplementationOnce(() => {});
     ExportApplicationsToCSV([], "test_name.csv");
     expect(consoleSpy).toBeCalled();
   });

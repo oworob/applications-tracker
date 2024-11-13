@@ -1,7 +1,8 @@
 import "styles/base.scss";
 import { Routes, Route } from "react-router-dom";
 import routes from "assets/routes";
-import Nav from "./components/nav/Nav";
+import Nav from "components/nav/Nav";
+
 import SnackBar from "components/snackbar/SnackBar";
 
 function App() {

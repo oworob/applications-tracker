@@ -1,11 +1,12 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import ConfirmModal from "./ConfirmModal";
+import { vi } from "vitest";
 
 describe("ConfirmModal", () => {
   const title = "test_title";
   const message = "test-message";
-  const onConfirm = jest.fn();
-  const onCancel = jest.fn();
+  const onConfirm = vi.fn();
+  const onCancel = vi.fn();
 
   it("should render the modal with title and message", () => {
     render(<ConfirmModal title={title} message={message} onConfirm={onConfirm} onCancel={onCancel} />);
