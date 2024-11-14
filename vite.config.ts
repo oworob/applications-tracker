@@ -12,6 +12,11 @@ export default defineConfig({
     setupFiles: "./src/setupTests.ts",
     environment: "jsdom",
     globals: true,
+    coverage: {
+      clean: false,
+      include: ["src"],
+      exclude: ["src/main.tsx", "src/App.tsx", "src/**/*.spec.tsx", "src/**/*.spec.ts"],
+    },
   },
   css: {
     preprocessorOptions: {

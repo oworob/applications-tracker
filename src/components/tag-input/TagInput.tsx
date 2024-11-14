@@ -21,11 +21,12 @@ export default function TagInput(props: any) {
 
       <input
         type="text"
+        id="tag-input"
         placeholder={placeholder}
         onKeyDown={(e) => {
           if ([",", "Enter", "Tab"].includes(e.key)) {
             e.preventDefault();
-            if (e.currentTarget.value !== "" && !Tags.includes(e.currentTarget.value)) {
+            if (e.currentTarget.value !== "" && !Tags.includes(e.currentTarget.value.trim())) {
               SetTags([...Tags, e.currentTarget.value.trim()]);
               e.currentTarget.value = "";
             }

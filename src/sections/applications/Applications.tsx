@@ -12,6 +12,7 @@ import { FormatDate } from "tools/FormatDate";
 import LoadingIcon from "components/loading/LoadingIcon";
 import Checkbox from "components/checkbox/Checkbox";
 import { MONTHS } from "models/constants";
+import { LoadFromLocalStorage, SaveToLocalStorage } from "services/PersistenceService";
 
 const columns = ["status", "position", "company", "seniority", "applied", "salary", "location", "mode", "skills", "link"];
 
@@ -38,6 +39,8 @@ export default function Applications() {
       SetApplications(applications);
       SetLoading(false);
     });
+    const loaded_columns = LoadFromLocalStorage("visible_application_columns");
+    SetVisibleColumns(loaded_columns ? loaded_columns : columns);
   }, []);
 
   function FilterAndSortData() {
@@ -118,6 +121,11 @@ export default function Applications() {
     SetFilteredData(filtered_data);
   }
 
+  function UpdateVisibleColumns(new_columns: string[]) {
+    SetVisibleColumns(new_columns);
+    SaveToLocalStorage("visible_application_columns", new_columns);
+  }
+
   return (
     <section id="Applications">
       <header className="section-header">
@@ -177,7 +185,7 @@ export default function Applications() {
                   <div
                     className="option"
                     onClick={() => {
-                      SetVisibleColumns(columns);
+                      UpdateVisibleColumns(columns);
                     }}
                   >
                     <p>Show All</p>
@@ -188,9 +196,9 @@ export default function Applications() {
                       key={column}
                       onClick={() => {
                         if (VisibleColumns.length > 1 && VisibleColumns.includes(column)) {
-                          SetVisibleColumns(VisibleColumns.filter((c) => c !== column));
+                          UpdateVisibleColumns(VisibleColumns.filter((c) => c !== column));
                         } else if (!VisibleColumns.includes(column)) {
-                          SetVisibleColumns([...VisibleColumns, column]);
+                          UpdateVisibleColumns([...VisibleColumns, column]);
                         }
                       }}
                     >

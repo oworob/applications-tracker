@@ -6,9 +6,11 @@ describe("Select", () => {
   const options = ["one", "two", "three"];
   const DisplayFun = (option: string) => option;
   const SelectedOption = options[0];
-  const SetSelectedOption = vi.fn();
+  let SetSelectedOption = vi.fn();
 
-  beforeEach(() => {});
+  beforeEach(() => {
+    SetSelectedOption = vi.fn();
+  });
 
   it("should render", () => {
     render(<Select options={options} DisplayFun={DisplayFun} SelectedOption={SelectedOption} SetSelectedOption={SetSelectedOption} />);
@@ -38,7 +40,7 @@ describe("Select", () => {
     expect(SetSelectedOption).toHaveBeenCalled();
   });
 
-  it.skip("should not select the same option", () => {
+  it("should not select the same option", () => {
     render(<Select options={options} DisplayFun={DisplayFun} SelectedOption={SelectedOption} SetSelectedOption={SetSelectedOption} />);
     const option = within(screen.getByTestId("select-options")).getByText(options[0]);
     fireEvent.click(option);

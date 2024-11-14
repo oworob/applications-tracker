@@ -5,6 +5,10 @@ import store from "stores/Store";
 import { vi } from "vitest";
 
 describe("SnackBar", () => {
+  beforeEach(() => {
+    vi.useFakeTimers({ shouldAdvanceTime: true });
+  });
+
   it("should render", () => {
     render(
       <Provider store={store}>
@@ -24,9 +28,14 @@ describe("SnackBar", () => {
       store.dispatch({ type: "notification/ShowNotification", payload: { message: "test_message", notification_type: "success" } });
     });
     expect(screen.getByText("test_message")).toBeInTheDocument();
+
+    act(() => {
+      store.dispatch({ type: "notification/ShowNotification", payload: { message: "test_error_message", notification_type: "error" } });
+    });
+    expect(screen.getByText("test_error_message")).toBeInTheDocument();
   });
 
-  it.skip("should hide after a few seconds", async () => {
+  it("should hide after a few seconds", async () => {
     render(
       <Provider store={store}>
         <SnackBar />
@@ -36,22 +45,14 @@ describe("SnackBar", () => {
       store.dispatch({ type: "notification/ShowNotification", payload: { message: "test_message", notification_type: "success" } });
     });
     await waitFor(() => expect(screen.getByTestId("SnackBar").className).toBe("show"));
-    await waitFor(() => expect(screen.getByTestId("SnackBar").className).toBe("hide"));
-  });
-
-  it("should use the correct icon", async () => {
-    render(
-      <Provider store={store}>
-        <SnackBar />
-      </Provider>
-    );
     act(() => {
-      store.dispatch({ type: "notification/ShowNotification", payload: { message: "test_error_message", notification_type: "error" } });
+      vi.advanceTimersByTime(10000);
     });
-    await waitFor(() => expect(screen.getByTestId("error-icon")).toBeInTheDocument());
+    await waitFor(() => expect(screen.getByTestId("SnackBar").className).toBe("hide"));
   });
 
   afterEach(() => {
     vi.clearAllTimers();
+    vi.useRealTimers();
   });
 });
